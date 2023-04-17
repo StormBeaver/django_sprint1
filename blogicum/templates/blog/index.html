@@ -3,7 +3,7 @@
 {% block content %}
   <h1>Лента записей</h1>                        
   {% for posts in post reversed %}
-  <hr>
+    <hr>
     <article>
       <ul>
         <li>
@@ -17,9 +17,9 @@
         </li>
       </ul>          
       <p>
-        {{ posts.text|truncatewords:10 }}
+        {{ posts.text|linebreaks|truncatewords:10 }}
       </p>
-      <a href={% url 'blog:post_detail' posts.id %}>Читать полный текст</a>
+      <a href="{% url 'blog:post_detail' posts.id %}">Читать полный текст</a>
     </article>
   {% endfor %}
 {% endblock %}
